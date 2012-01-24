@@ -1,0 +1,5 @@
+DB_NAME =
+DB_USER =
+DB_PASS =
+TW_WORLD =
+TW_SERVER =
