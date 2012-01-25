@@ -1,11 +1,6 @@
 language: php
 php:
-	5.3
-mysql:
-	adapter: mysql2
-	database: npo
-	username: npo
- 	encoding: utf8
+	- 5.3
 before_script:
 	- tests/travis/setup.sh
 script: make
