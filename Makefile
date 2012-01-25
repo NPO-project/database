@@ -17,6 +17,7 @@ ifeq (, $(and $(DB_NAME),$(DB_USER),$(DB_PASS),$(TW_WORLD),$(TW_SERVER)))
 endif
 
 buildcreate:
+	@@mkdir -p build
 	@@cat ${SRC_DIR}/create_db.sql | $(SQLBUILD)
 
 builddrop:
