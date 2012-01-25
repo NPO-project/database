@@ -3,4 +3,7 @@ php:
   - 5.3
 before_script:
   - tests/travis/setup.sh
-script: make
+env:
+  - TYPE=install
+  - TYPE=uninstall
+script: make $TYPE
