@@ -21,6 +21,7 @@ buildcreate:
 	@@cat ${SRC_DIR}/create_db.sql | $(SQLBUILD)
 
 builddrop:
+	@@mkdir -p build
 	@@cat ${SRC_DIR}/drop_db.sql | $(SQLBUILD)
 
 execsql:
