@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `{PREFIX}_tribes` (
 CREATE TABLE IF NOT EXISTS `{PREFIX}_players` (
 	`id` int(11) NOT NULL,
 	`name` varchar(24) NOT NULL,
-	`tribe_id` int(11) NOT NULL,
+	`tribe_id` int(11) NULL,
 	PRIMARY KEY (`id`),
 	FOREIGN KEY (`tribe_id`) REFERENCES {PREFIX}_tribes(`id`)
 ) ENGINE=InnoDB;
