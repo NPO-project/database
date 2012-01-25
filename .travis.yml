@@ -1,6 +1,6 @@
 language: php
 php:
-	- 5.3
+  - 5.3
 before_script:
-	- tests/travis/setup.sh
+  - tests/travis/setup.sh
 script: make
