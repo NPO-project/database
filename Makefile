@@ -2,7 +2,7 @@ include config.mk
 
 SRC_DIR = src
 BUILD_DIR = build
-DB_PREFIX = npo_${TW_SERVER}_${TW_WORLD}
+DB_PREFIX = npo_${TW_SERVER}_$(TW_WORLD)
 
 SQLEXEC = mysql --user=$(DB_USER) --password=$(DB_PASS)
 SQLBUILD = sed 's/{DBNAME}/$(DB_NAME)/' | sed 's/{PREFIX}/$(DB_PREFIX)/' > $(BUILD_DIR)/todo.sql
@@ -17,15 +17,15 @@ ifeq (, $(and $(DB_NAME),$(DB_USER),$(DB_PASS),$(TW_WORLD),$(TW_SERVER)))
 endif
 
 buildcreate:
-	@@mkdir -p build
+	@@mkdir -p $(BUILD_DIR)
 	@@cat ${SRC_DIR}/create_db.sql | $(SQLBUILD)
 
 builddrop:
-	@@mkdir -p build
+	@@mkdir -p $(BUILD_DIR)
 	@@cat ${SRC_DIR}/drop_db.sql | $(SQLBUILD)
 
 execsql:
 	@@$(SQLEXEC) < $(BUILD_DIR)/todo.sql
 
 clean:
-	@@rm -R ${BUILD_DIR}/*
+	@@rm -R $(BUILD_DIR)/*
