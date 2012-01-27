@@ -2,10 +2,11 @@ include config.mk
 
 SRC_DIR = src
 BUILD_DIR = build
-DB_PREFIX = npo_${TW_SERVER}_$(TW_WORLD)
 
 SQLEXEC = export PGPASSWORD=$(DB_PASS); psql -q --username $(DB_USER) -f
-SQLBUILD = sed 's/{DBNAME}/$(DB_NAME)/g' | sed 's/{PREFIX}/$(DB_PREFIX)/g' >> $(BUILD_DIR)/todo.sql
+SQLBUILD = sed 's/{DBNAME}/$(DB_NAME)/g' \
+	| sed 's/{PREFIX}/$(DB_PREFIX)_/g' \
+	| sed 's/{WORLDPREFIX}/$(DB_PREFIX)_$(TW_SERVER)$(TW_WORLD)_/' >> $(BUILD_DIR)/todo.sql
 USEMYSQL = 0
 
 install: buildcreate execsql clean
