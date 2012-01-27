@@ -31,7 +31,7 @@ builddropmain:
 
 execsql:
 ifneq (0, $(USEMYSQL))
-	@@cat $(BUILD_DIR)/todo.sql \ 
+	@@cat $(BUILD_DIR)/todo.sql \
 		| sed 's/"/`/g' \
 		| sed 's/\\c/USE/g' \
 		| sed '/^CREATE TYPE/d' \
