@@ -1,5 +1,4 @@
 #!/bin/sh
-mysql -e 'create database npo;'
 mysql --user root -e 'grant usage on *.* to npo@localhost identified by "npo";'
 mysql --user root -e 'grant all privileges on npo.* to npo@localhost;'
 echo 'DB_NAME = npo' > config.mk
