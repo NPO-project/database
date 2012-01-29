@@ -18,7 +18,6 @@ ifeq (, $(and $(DB_NAME),$(DB_USER),$(DB_PASS),$(TW_WORLD),$(TW_SERVER)))
 	@@echo 'incomplete config.mk' >&2 
 	@@false
 endif
-	@@mkdir -p $(BUILD_DIR)
 
 buildcreate: check
 	@@cat $(SRC_DIR)/create_db.sql $(SRC_DIR)/create_main_tables.sql $(SRC_DIR)/create_world_tables.sql | $(SQLBUILD)
@@ -49,4 +48,5 @@ else
 endif
 
 clean:
+	@@mkdir -p $(BUILD_DIR)
 	@@echo > $(BUILD_DIR)/todo.sql
