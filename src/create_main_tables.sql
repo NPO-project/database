@@ -27,7 +27,7 @@ CREATE TABLE "{PREFIX}registrations" (
 CREATE TABLE "{PREFIX}members" (
     "id" integer NOT NULL DEFAULT NEXTVAL('{PREFIX}members_id_seq'),
     "registration_id" integer NOT NULL,
-    "forum_members_id" integer NULL,
+    "forum_member_id" integer NULL,
     "name" varchar(50) NOT NULL,
     "suspended" boolean NOT NULL DEFAULT FALSE,
     PRIMARY KEY ("id"),
